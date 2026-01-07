@@ -4,11 +4,12 @@ const Navbar = () => {
   return (
     <nav className="bg-amber-200 px-4 py-3 flex justify-between items-center shadow-md">
       <div
-        className="text-2xl  text-blackfont-serif"
+        className="text-2xl font-bold text-pink-400 font-serif"
         style={{ fontFamily: "Pacifico, cursive" }}
       >
         Piccoli Ritmi
       </div>
+      <img src="/Plant.png" alt="Plant" className="h-12 mx-8" />
       <ul className="flex space-x-6">
         <li>
           <a
