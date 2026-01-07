@@ -1,4 +1,6 @@
+
 import Navbar from "./Navbar";
+import Registrazione from "./Registrazione";
 
 function App() {
   return (
@@ -7,6 +9,7 @@ function App() {
       style={{ fontFamily: "Pacifico, cursive" }}
     >
       <Navbar />
+      <Registrazione />
     </div>
   );
 }
