@@ -1,16 +1,23 @@
 
-import Navbar from "./Navbar";
-import Registrazione from "./Registrazione";
+import Navbar from "./components/Navbar";
+import Registrazione from "./components/Registrazione";
+import Login from "./components/Login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div
-      className="min-h-screen bg-green-100"
-      style={{ fontFamily: "Pacifico, cursive" }}
-    >
-      <Navbar />
-      <Registrazione />
-    </div>
+    <Router>
+      <div
+        className="min-h-screen bg-green-100"
+        style={{ fontFamily: "Pacifico, cursive" }}
+      >
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Registrazione />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 export default App;
