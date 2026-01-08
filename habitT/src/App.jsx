@@ -1,8 +1,7 @@
-
 import Navbar from "./components/Navbar";
 import Registrazione from "./components/Registrazione";
 import Login from "./components/Login";
-import Habits from "./components/Habits";
+import Habits from "./components/habits";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 

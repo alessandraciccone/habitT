@@ -5,7 +5,7 @@ const Login = () => {
     username: "",
     password: "",
   });
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -21,10 +21,9 @@ const Login = () => {
     }
 
     setLoading(true);
-    setMessage("");
+    setMessage(null);
 
     try {
-      // FastAPI OAuth2PasswordRequestForm richiede form-urlencoded
       const body = new URLSearchParams();
       body.append("username", form.username);
       body.append("password", form.password);
@@ -39,14 +38,28 @@ const Login = () => {
 
       const data = await res.json();
 
-      if (res.ok) {
-        console.log(" Login OK:", data);
-        setMessage({ type: "success", text: "Login effettuato con successo!" });
-
-        setMessage({ type: "error", text: data.detail || "Login fallito." });
+      if (!res.ok) {
+        setMessage({
+          type: "error",
+          text: data.detail || "Login fallito.",
+        });
+        return;
       }
+
+      // ✅ SALVATAGGIO TOKEN (FONDAMENTALE)
+      localStorage.setItem("token", data.access_token);
+
+      console.log("✅ Login OK, token salvato");
+
+      setMessage({
+        type: "success",
+        text: "Login effettuato con successo!",
+      });
+
+      // opzionale: redirect
+      // navigate("/habits");
     } catch (err) {
-      console.error(" Errore login:", err);
+      console.error("❌ Errore login:", err);
       setMessage({ type: "error", text: "Errore di rete." });
     } finally {
       setLoading(false);
