@@ -1,6 +1,8 @@
+
 import Navbar from "./components/Navbar";
 import Registrazione from "./components/Registrazione";
 import Login from "./components/Login";
+import Habits from "./components/Habits";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -16,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Registrazione />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/habits" element={<Habits />} />
           </Routes>
         </main>
         <Footer />

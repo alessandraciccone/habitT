@@ -65,12 +65,12 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <a
-              href="#habits"
+            <Link
+              to="/habits"
               className="text-orange-300 hover:text-orange-600 transition-colors"
             >
-              Abitudini
-            </a>
+              Habits
+            </Link>
           </li>
         </ul>
       </div>
